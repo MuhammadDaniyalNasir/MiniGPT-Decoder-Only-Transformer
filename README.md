@@ -45,8 +45,7 @@ mini-gpt/
 ├── data/
 │   └── input.txt            # Training text corpus
 │
-└── checkpoints/
-    └── model.pt             # Saved model weights
+└── model.pt             # Saved model weights
 ```
 
 ---

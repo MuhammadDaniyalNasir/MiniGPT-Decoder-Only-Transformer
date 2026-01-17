@@ -24,8 +24,8 @@ class TransformerBlock(nn.Module):
         self.ln2 = nn.LayerNorm(d_model)
 
     def forward(self, x):
-        attn_out = torch.cat([h(x) for h in self.attn], dim=-1)
-        x = self.ln1(x + self.proj(attn_out))
-        x = self.ln2(x + self.ff(x))
+        attn_out = torch.cat([h(x) for h in self.attn], dim=-1) # Concatenate attention heads
+        x = self.ln1(x + self.proj(attn_out)) # Residual connection + LayerNorm
+        x = self.ln2(x + self.ff(x)) # Residual connection + LayerNorm
         return x
     
